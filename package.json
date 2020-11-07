@@ -1,0 +1,54 @@
+{
+  "name": "overlay",
+  "version": "0.0.0",
+  "description": "Overlay for OCTOLeague",
+  "homepage": "vk.com/octoleague",
+  "author": {
+    "name": "КОПАТЫЧ",
+    "email": "ein.rennfahrer@yandex.ru",
+    "url": "https://vk.com/k_o_patich"
+  },
+  "files": [
+    "dashboard",
+    "graphics",
+    "extension.js",
+    "extension"
+  ],
+  "keywords": [
+    "",
+    "nodecg-bundle"
+  ],
+  "nodecg": {
+    "compatibleRange": "^1.1.1",
+    "dashboardPanels": [
+      {
+        "name": "match-info",
+        "title": "Match information",
+        "width": 3,
+        "file": "MatchInfo/matchinfo.html",
+        "headerColor": "#762B7B"
+      }
+    ],
+    "graphics": [
+      {
+        "file": "index.html",
+        "width": 1920,
+        "height": 1080
+      }
+    ],
+    "assetCategories": [
+      {
+        "name": "logos",
+        "title": "Team's logos",
+        "allowedTypes": ["png"]
+      },
+      {
+        "name": "maps",
+        "title": "Maps",
+        "allowedTypes": ["png", "jpg", "jpeg"]
+      }
+    ]
+  },
+  "repository": "https://github.com/nodecg/nodecg.git",
+  "private": true
+}
