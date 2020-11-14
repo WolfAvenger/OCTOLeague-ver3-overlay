@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 
 module.exports = function (nodecg) {
 	const router = nodecg.Router();
@@ -37,6 +38,12 @@ module.exports = function (nodecg) {
 			url: found.url
 		});
 	});
+
+	router.get('/:type/:name', (req, res) => {
+		const {type, name} = req.params;
+		res.sendFile(`${name}.ttf`,
+			{root: path.join(`${__dirname}`,`../files/${type}`)})
+	})
 
 	nodecg.mount('/api', router);
 };

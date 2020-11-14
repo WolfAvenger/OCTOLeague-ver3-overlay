@@ -24,8 +24,8 @@
       {
         "name": "match-info",
         "title": "Match information",
-        "width": 3,
-        "file": "MatchInfo/matchinfo.html",
+        "width": 4,
+        "file": "match_info/index.html",
         "headerColor": "#762B7B"
       }
     ],
