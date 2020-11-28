@@ -26,3 +26,4 @@ const vue = new Vue({
 });
 
 //vue.getTeams();
+//
