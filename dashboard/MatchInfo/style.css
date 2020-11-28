@@ -11,5 +11,11 @@ div#container {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-/*;*/
+}
+
+div.support-info {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: stretch;
 }

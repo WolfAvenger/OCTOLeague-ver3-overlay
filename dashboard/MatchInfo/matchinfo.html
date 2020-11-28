@@ -22,7 +22,14 @@
 	<div class="teams">
 		<div class="team team-a">
 			<select name="team-a" id="team-a-select" class="team-name" v-model="team1" onclick="vue.getTeams()">
-				<option value="None" selected disabled>Выбери команду</option>
+				<option value="None" selected disabled>Выбери команду A</option>
+				<option v-for="team in teams" value="team">{{team}}</option>
+			</select>
+			<img src="" alt="" class="logo">
+		</div>
+		<div class="team team-b">
+			<select name="team-a" id="team-b-select" class="team-name" v-model="team1" onclick="vue.getTeams()">
+				<option value="None" selected disabled>Выбери команду B</option>
 				<option v-for="team in teams" value="team">{{team}}</option>
 			</select>
 			<img src="" alt="" class="logo">
