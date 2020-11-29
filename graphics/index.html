@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,6 +32,10 @@
 		// You can access the NodeCG api anytime from the `window.nodecg` object
 		// Or just `nodecg` for short. Like this!:
 		nodecg.log.info('Here\'s an example of using NodeCG\'s logging API!');
+
+		nodecg.listenFor('MatchInfo', data => {
+			console.table(data)
+		})
 	</script>
 </body>
 </html>

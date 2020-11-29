@@ -1,3 +1,13 @@
+@font-face {
+	src: url("/api/font/TTLakesCondensed-Medium");
+	font-family: "TT Lakes Condensed Medium";
+}
+
+@font-face {
+	src: url("/api/font/BigNoodleTitling");
+	font-family: "BigNoodleTitling";
+}
+
 body {
 	margin: 20px 0;
 	padding: 0;
@@ -11,5 +21,106 @@ div#container {
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
-/*;*/
+}
+
+div.support-info {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: stretch;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+input#casters, input#stage {
+	width: 95%;
+	font-family: "TT Lakes Condensed Medium", sans-serif;
+	font-size: 20pt;
+}
+
+div.teams {
+	width: 95%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+div.team {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+
+select.team-name {
+	width: 150px;
+	font-family: "TT Lakes Condensed Medium", sans-serif;
+	border-radius: 5px;
+	border: 1px solid #525F78;
+}
+select.team-name:focus, select.team-name:active{
+	outline: none;
+}
+
+option {
+	font-family: "TT Lakes Condensed Medium", sans-serif;
+	color: black;
+	background-color: white;
+}
+
+img.logo {
+	height: 150px;
+	width: 150px;
+	margin-bottom: 10px;
+}
+img:not([src]) {
+	visibility: hidden;
+}
+
+p.vs {
+	font-family: "BigNoodleTitling", sans-serif;
+	font-size: 42pt;
+	color: #A33B3B;
+}
+
+button.send {
+	border: 1px solid #525F78;
+	border-radius: 10px;
+	background-color: #525F78;
+	color: cadetblue;
+	font-family: "TT Lakes Condensed Medium", sans-serif;
+	font-size: 24pt;
+	margin-top: 20px;
+	transition: .7s;
+}
+
+button.send:hover {
+	color: #525F78;
+	background-color: white;
+}
+
+button.sent {
+	color: darkgreen;
+	background-color: #05c46b;
+	border: 1px solid #525F78;
+	border-radius: 10px;
+	font-family: "TT Lakes Condensed Medium", sans-serif;
+	font-size: 24pt;
+	margin-top: 20px;
+	transition: .7s;
+}
+
+button.not-sent {
+	color: darkred;
+	background-color: #ff3f34;
+	border: 1px solid #525F78;
+	border-radius: 10px;
+	font-family: "TT Lakes Condensed Medium", sans-serif;
+	font-size: 24pt;
+	margin-top: 20px;
+	transition: .7s;
+}
+
+button:focus, button:active {
+	outline: none;
 }

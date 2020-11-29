@@ -23,9 +23,9 @@
     "dashboardPanels": [
       {
         "name": "match-info",
-        "title": "Match information",
+        "title": "Информация о матче",
         "width": 4,
-        "file": "match_info/index.html",
+        "file": "MatchInfo/index.html",
         "headerColor": "#762B7B"
       }
     ],
@@ -46,6 +46,11 @@
         "name": "maps",
         "title": "Maps",
         "allowedTypes": ["png", "jpg", "jpeg"]
+      },
+      {
+        "name": "teamColors",
+        "title": "Team's colors",
+        "allowedTypes": ["json"]
       }
     ]
   },
