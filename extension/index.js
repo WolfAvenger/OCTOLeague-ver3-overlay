@@ -1,10 +1,15 @@
 'use strict';
 const path = require('path');
+const fs = require('fs');
 
 module.exports = function (nodecg) {
 	const router = nodecg.Router();
 	const teams = nodecg.Replicant('assets:logos');
 	const maps = nodecg.Replicant('assets:maps');
+	const colors = nodecg.Replicant('assets:teamColors');
+	let localStorage = {};
+
+	//region ROUTER
 
 	router.get('/teamlist', (req, res) =>{
 		const data = {
@@ -15,12 +20,20 @@ module.exports = function (nodecg) {
 
 	router.get('/team/:name/:info', (req, res) => {
 		const { name, info } = req.params;
-
+		let found;
 		switch(info){
 			case 'logo':
-				let found = teams.__value.filter(elem => elem.name === name)[0];
+				found = teams.__value.filter(elem => elem.name === name)[0];
 				res.json({
 					url: found.url
+				});
+				break;
+			case 'color':
+				found = fs.readFileSync(`${path.join(__dirname, `../../../${colors.__value[0].url}`)}`).toString();
+				found = JSON.parse(found)
+				res.json({
+					primary: found[name].primary,
+					secondary: found[name].secondary
 				});
 				break;
 			case 'roster':
@@ -44,6 +57,23 @@ module.exports = function (nodecg) {
 		res.sendFile(`${name}.ttf`,
 			{root: path.join(`${__dirname}`,`../files/${type}`)})
 	})
+
+	router.get('/localstorage', (req, res) => {
+		res.json(localStorage);
+	})
+
+	//endregion
+
+	//region LocalStorage
+
+	nodecg.listenFor('MatchInfo', data => {
+		for (let key of Object.keys(data)){
+			console.log(key, data)
+			localStorage[key] = data[key];
+		}
+	})
+
+	//endregion
 
 	nodecg.mount('/api', router);
 };
