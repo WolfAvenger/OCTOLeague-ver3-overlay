@@ -5,8 +5,12 @@
 	<title>Match Info</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<link rel="stylesheet" href="style.css">
+	<script type="module">
+		import { receiveLocalStorage } from "/api/js/localStorage";
+		receiveLocalStorage();
+	</script>
 </head>
-<body onload="receiveLocalStorage()">
+<body>
 
 <div id="container">
 	<div class="support-info">

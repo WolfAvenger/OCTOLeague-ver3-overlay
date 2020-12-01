@@ -54,7 +54,11 @@ module.exports = function (nodecg) {
 
 	router.get('/:type/:name', (req, res) => {
 		const {type, name} = req.params;
-		res.sendFile(`${name}.ttf`,
+		const types = {
+			'font': 'ttf',
+			'js': 'js'
+		}
+		res.sendFile(`${name}.${types[type]}`,
 			{root: path.join(`${__dirname}`,`../files/${type}`)})
 	})
 
