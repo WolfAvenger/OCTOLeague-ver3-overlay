@@ -13,6 +13,7 @@ body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
+	background-color: hsla(214, 41%, 17%, 0.83);
 }
 
 div#container {

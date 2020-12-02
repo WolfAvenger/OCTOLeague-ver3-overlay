@@ -51,10 +51,11 @@
         "name": "teamColors",
         "title": "Team's colors",
         "allowedTypes": ["json"]
-      },
+      }
+    ,
       {
-        "name": "videos",
-        "title": "Background videos",
+        "name": "backgroundVideos",
+        "title": "Background Video",
         "allowedTypes": ["mp4"]
       }
     ]
