@@ -5,12 +5,24 @@
 	<title>Match Info</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/api/style/bg">
 	<script type="module">
 		import { receiveLocalStorage } from "/api/js/localStorage";
 		receiveLocalStorage();
 	</script>
 </head>
 <body>
+
+<div class="video">
+	<video autoplay="" muted="" loop="" id="myVideo">
+		<source src="/api/video/bg" type="video/mp4" >
+	</video>
+</div>
+
+<div id="container">
+
+</div>
+
 <script src="vue.js"></script>
 </body>
 </html>

@@ -7,6 +7,7 @@ module.exports = function (nodecg) {
 	const teams = nodecg.Replicant('assets:logos');
 	const maps = nodecg.Replicant('assets:maps');
 	const colors = nodecg.Replicant('assets:teamColors');
+	const videos = nodecg.Replicant('assets:videos');
 	let localStorage = {};
 
 	//region ROUTER
@@ -52,11 +53,18 @@ module.exports = function (nodecg) {
 		});
 	});
 
+	router.get('/bg', (req, res) => {
+		const url = videos.__value.filter(elem => elem.name === 'bg')[0];
+		console.log(url[0]);
+		res.sendFile(url[0].url);
+	})
+
 	router.get('/:type/:name', (req, res) => {
 		const {type, name} = req.params;
 		const types = {
 			'font': 'ttf',
-			'js': 'js'
+			'js': 'js',
+			'style': 'css',
 		}
 		res.sendFile(`${name}.${types[type]}`,
 			{root: path.join(`${__dirname}`,`../files/${type}`)})
