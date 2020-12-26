@@ -56,7 +56,6 @@ module.exports = function (nodecg) {
 	router.get('/bg', (req, res) => {
 		videos.__value.forEach(elem => console.log(elem.name))
 		const url = videos.__value[0];
-		console.log(url);
 		res.sendFile(url.url, {root: path.join(__dirname, '../../../')});
 	})
 
