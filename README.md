@@ -1,63 +1,70 @@
-## Disclaimer
-overlay is a [NodeCG](http://github.com/nodecg/nodecg) bundle. 
-It works with NodeCG versions which satisfy this [semver](https://docs.npmjs.com/getting-started/semantic-versioning) range: `^1.1.1`
-You will need to have an appropriate version of NodeCG installed to use it.
+# NodeCG
 
-# OCTOLeague's new overlay (3rd version)
-Краткий экскурс того, что лежит в этой директории:
+[![NodeCG](https://raw.githubusercontent.com/nodecg/nodecg/master/media/splash.png)](https://nodecg.dev/)
 
-- **dashboard**  
-Здесь находятся все страницы, которые пользователь видит в браузере, и с которых он управляет оверлеем.  
-Каждая страница находится в своей папке, название которой записывается в CamelCase виде с заглавной буквы.  
-В каждой папке должны быть файлы:
-1. `index.html`
-2. `style.css`
-3. `vue.js`
+[![Discord](https://img.shields.io/discord/754749209722486814.svg?logo=discord)](https://discord.com/invite/GJ4r8a8)
+[![Build Status](https://github.com/nodecg/nodecg/workflows/CI/badge.svg?branch=legacy-1.x)](https://github.com/nodecg/nodecg/actions?query=workflow%3ACI)
+[![Coverage Status](https://codecov.io/gh/nodecg/nodecg/branch/master/graph/badge.svg)](https://codecov.io/gh/nodecg/nodecg)
+[![Docker Build Status](https://img.shields.io/docker/build/nodecg/nodecg.svg)](https://hub.docker.com/r/nodecg/nodecg/tags/)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/fold_left.svg?style=social&label=Follow%20%40NodeCG)](https://twitter.com/NodeCG)
 
-- **extension**  
-В этой папке находятся файлы сервера оверлея. 
-На сервере можно получить дополнительные данные, вроде файлов категории **assets**  
-P. S. Пока весь сервер лежит в `extension/index.js`
+NodeCG is a broadcast graphics framework and application. It enables you to write complex, dynamic broadcast graphics
+using the web platform. NodeCG has no graphics or drawing primitives of its own. Instead, NodeCG provides
+a structure for your code and an API to facilitate moving data between the dashboard, the server, and your graphics.
+It makes no assumptions about how to best code a graphic, and gives you complete freedom to use whatever libraries,
+frameworks, tools, and methodologies you want. As such, NodeCG graphics can be rendered in any environment that
+can render HTML, including:
 
-- **files**  
-В этой папке находятся различные файлы, которые пользователь не загружает, такие как `.ttf`-шрифты.  
+- [OBS Studio](https://obsproject.com/)
+- [vMix](http://www.vmix.com/)
+- [XSplit](https://www.xsplit.com/)
+- [CasparCG](https://github.com/CasparCG/server/releases) (v2.2.0+)
 
-- **graphics**  
-В этой папке лежат все страницы, которые отображаются в оверлее.   
-Принцип наименования папок и их содержимого указаны в `dashboard`
+> Don't see your preferred streaming software on this list? NodeCG graphics require Chrome 49 or newer. If your streaming software's implementation of browser source uses a build of CEF that is based on at least Chrome 49, chances are that NodeCG graphics will work in it. You can check what version of Chrome your streaming software uses for its browser sources by opening [whatversion.net/chrome](http://www.whatversion.net/chrome) as a browser source.
 
-- **package.json**  
-В этом файле находится вся конфигурация оверлея. 
-Полностью расписывать тут не буду, вся информация есть в [документации](https://www.nodecg.dev/)   
+Have questions about NodeCG, or just want to say 'hi'? [Join our Discord server](https://discord.com/invite/GJ4r8a8)!
 
+## Documentation & API Reference
 
-## Технологии
-Для оверлея используется [Vue.JS](vuejs.org), `Express (nodecg)`, [NodeCG](https://www.nodecg.dev/)
+Full docs and API reference are available at https://nodecg.dev
 
-## Как установить к себе на машину для разработки  
-[Вот так](https://www.nodecg.dev/docs/installing) 
-Чтобы запустить код у себя на локальной машине, перейди в директорию `nodecg` в консоли среды разработки при помощи команды 
-`cd <директория>`. `cd ..` для шага назад.
+## Goals
 
-## Правила наименования веток
-Чтобы разработать отдельную фичу, необходимо выполнить несколько шагов:  
-1. Вернуться на ветку `master`: `git checkout master`
-2. Обновить ветку `master`: `git pull origin master`
-3. Создать новую ветку: `git checkout -b <папка>.<описание_фичи>`. Например: `dashboard.adding_MatchInfo`. 
-Если фича не затрагивает никакие папки, вместо папки указывай `other`.
-4. **Тыдыщ**! Ты можешь писать фичу в отдельной ветке
+The NodeCG project exists to accomplish the following goals:
 
-*P. S. Если `master` обновлялся, ты можешь обновить свою ветку свежим кодом с основной ветки с помощью `git pull --rebase origin master`*  
+- Make broadcast graphics (also known as "character generation" or "CG") more accessible.
+- Remain as close to the web platform as possible.
+- Support broadcasts of any size and ambition.
 
-> Я закончил разработку фичи. Как мне ее залить в гит?
-1. `git add <файлы>`. Эта команда добавляет файлы, которые ты хочешь залить. `git add -A` чтобы зафиксировать все изменения.
-2. `git commit -m "<текст>"`. Эта команда сохраняет текущее состояние кода в файлах, которые ты выбрал прошлой командой.
-Это состояние называется commit'ом. В тексте указывается то изменение, которое отражает этот коммит.
-3. *Если необходимо.* Обновляемся, если был обновлен `master`: `git pull --rebase origin master`
-4. Заливаем в гит: `git push origin <ветка>`
+Let's unpack what these statements mean:
 
-Как только закончилась разработка новой фичи, создавай новый **Pull Request** (вкладка сверху).
-Затем толкай КОПАТЫЧа, чтобы он посмотрел код, если что-то нужно поправить, он тебе подскажет, что именно.
-Если все ок, то КОПАТЫЧ вольет твою фичу в основную ветку (`master`).  
+### > Make broadcast graphics (also known as "character generation" or "CG") more accessible
 
-**Очень важно!** Заливать в `master` что-либо можно только в исключительных случаях!
+Historically, broadcast graphics have been expensive. They either required expensive hardware, expensive software, or both. NodeCG was originally created to provide real-time broadcast graphics for Tip of the Hats, which is an all-volunteer charity fundraiser that had a budget of \$0 for its first several years.
+
+Now, it is possible to create an ambitious broadcast using entirely free software and consumer hardware. The NodeCG project embraces this democratization of broadcast technology.
+
+### > Remain as close to the web platform as possible
+
+NodeCG graphics are just webpages. There is absolutely nothing special or unique about them. This is their greatest strength.
+
+By building on the web platform, and not building too many abstractions on top of it, people developing broadcast graphics with NodeCG have access to the raw potential of the web. New APIs and capabilities are continually being added to the web platform, and NodeCG developers should have access to the entirety of what the web can offer.
+
+### > Support broadcasts of any size and ambition
+
+NodeCG's roots are in small broadcasts with no budget. More recently, NodeCG has begun seeing use in increasingly elaborate productions. We believe that one set of tools can and should be able to scale up from the smallest show all the way to the biggest fathomable show. Whether you're using OBS for everything, or a hardware switcher with a traditional key/fill workflow, NodeCG can be a part of any broadcast graphics system.
+
+## Maintainers
+
+- [Alex "Lange" Van Camp](https://alexvan.camp)
+- [Matt "Bluee" McNamara](https://mattmcn.com/)
+- [Keiichiro "Hoishin" Amemiya](https://hoish.in/)
+
+## Designers
+
+- [Chris Hanel](http://www.chrishanel.com)
+
+## Acknowledgements
+
+- [Atmo](https://github.com/atmosfar), original dashboard concept and code, the inspiration for toth-overlay
+- [Alex "Lange" Van Camp](http://alexvan.camp), designer & developer of [toth-overlay](https://github.com/TipoftheHats/toth-overlay), the base on which NodeCG was built
